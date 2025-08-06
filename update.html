@@ -91,9 +91,27 @@
     <img src="https://cdn.teamboogie.lol/bomb.png" alt="Image">
     <h1>Update v{{version}} Available!</h1>
     <h2>Please update to continue using Boogie!</h2>
-    <button class="submit-button" id="submit-btn">Update!</button>
+    
+    <div style="display: flex; gap: 2rem; justify-content: center;">
+      <button class="submit-button" id="submit-btn">Update!</button>
+      <button class="submit-button" id="dismiss-btn">Dismiss</button>
+    </div>
+
     <h3>discord.gg/fortnitedev</h3>
   </div>
+
+  <script>
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.onclick = function () {
+      pywebview.api.update();
+    };
+
+    const dismissBtn = document.getElementById('dismiss-btn');
+    dismissBtn.onclick = function () {
+      pywebview.api.dismiss();
+    };
+  </script>
+</body>
 
   <script>
     const tiltBox = document.getElementById("tilt-box");
