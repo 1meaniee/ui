@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Centered Short Input Box</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: white;
+      overflow: hidden;
+      background: #2c2c2c;
+      perspective: 1000px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      background: rgba(40, 40, 40, 0.75);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.37),
+        0 0 15px rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      transform-style: preserve-3d;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .container:hover {
+      box-shadow:
+        0 12px 40px 0 rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .container img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    }
+
+    h1, h2, h3 {
+      margin: 8px 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .submit-button {
+      background-color: #555555;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .submit-button:hover {
+      background-color: #777777;
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="tilt-box">
+    <img src="https://cdn.teamboogie.lol/bomb.png" alt="Image">
+    <h1>Update v{{version}} Available!</h1>
+    <h2>Please update to continue using Boogie!</h2>
+    <button class="submit-button" id="submit-btn">Update!</button>
+    <h3>discord.gg/fortnitedev</h3>
+  </div>
+
+  <script>
+    const tiltBox = document.getElementById("tilt-box");
+
+    tiltBox.addEventListener("mousemove", (event) => {
+      const { left, top, width, height } = tiltBox.getBoundingClientRect();
+      const x = (event.clientX - left) / width - 0.5;
+      const y = (event.clientY - top) / height - 0.5;
+      const rotateX = y * 20;
+      const rotateY = x * 20;
+      tiltBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    tiltBox.addEventListener("mouseleave", () => {
+      tiltBox.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+    });
+  </script>
+</body>
+</html>

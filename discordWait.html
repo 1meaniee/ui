@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grayish Frosted Box with Fade In</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .container {
+    background: rgba(40, 40, 40, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 50px;
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      0 0 15px rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    width: 360px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .container:hover {
+    box-shadow:
+      0 12px 40px 0 rgba(0, 0, 0, 0.5),
+      0 0 25px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+
+  .container img {
+    width: 190px;
+    height: 150px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  }
+
+  h1, h2 {
+    margin: 8px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+
+  .submit-button {
+    margin-top: 25px;
+    background: #555555;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .submit-button:hover {
+    background: #777777;
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord Icon" />
+    <h1>{{translation.get("discord-login-text1")}}</h1>
+    <h2>{{translation.get("discord-login-text2")}}</h2>
+    <button class="submit-button" id="submit-btn">{{translation.get("discord-login-text3")}}</button>
+  </div>
+</body>
+</html>

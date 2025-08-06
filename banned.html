@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Centered Short Input Box</title>
+  <style>
+    body {
+      background-color: #202020; /* light grey background color */
+      font-family: Arial, sans-serif; /* set the font family */
+      display: flex; /* use flexbox to center the content */
+      justify-content: center; /* center horizontally */
+      align-items: center; /* center vertically */
+      height: 100vh; /* set the height of the body to 100% of the viewport */
+      margin: 0; /* remove default margin */
+      flex-direction: column; /* stack the image and input box vertically */
+    }
+
+    .grey-input {
+      background-color: #131313; /* grey background color */
+      border: 5px solid #aaa; /* grey border */
+      padding: 15px; /* add some padding to the input field */
+      border-radius: 15px; /* add a slight rounded corner to the input field */
+      width: 50%; /* set the width of the input field to 20% of its parent container */
+      font-size: 14px; /* set the font size of the input field */
+      margin-top: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    h1, h2,h3 {
+      color: #ffffff; /* set text color to white */
+      text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5); /* add a shadow to the text */
+    }
+
+    .submit-button {
+      background-color: #818381; /* green background color */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #cdcdce; /* darker green background color on hover */
+    }
+  </style>
+</head>
+<body>
+  <img src="https://cdn.teamboogie.lol/bomb.png" alt="Image" width="250px" height="250px">
+  <h1>{{translation.get("ban-text1")}}</h1>
+  <h2>{{translation.get("ban-text2")}}</h2>
+  <h3>discord.gg/fortnitedev</h3>
+  <script>
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.onclick = function() {
+      pywebview.api.getUrl()
+    };
+  </script>
+</body>
+</html> 
